@@ -16,12 +16,12 @@ REGISTER         | MEANING
 7                | 
 8                | 
 9                | 
-10               | free-use register
-11               | free-use register
-12               | free-use register
-13               | free-use register
-14               | free-use register
-15               | free-use register
+A (10)           | free-use register A
+B (11)           | free-use register B
+C (12)           | free-use register C
+D (13)           | free-use register D
+E (14)           | free-use register E
+F (15)           | free-use register F
 ```
 
 ## Commands
