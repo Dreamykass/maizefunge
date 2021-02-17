@@ -12,7 +12,8 @@ The interpreter, written in Rust, should have a "driver" that works as a
 standalone application, but should also be easily used as a library.
 
 ## Features and todos
-- Fungeoid
+Maizefunge borrows features from different fungeoids.
+
 - [Befunge-93](https://github.com/catseye/Befunge-93)
 [(docs)](https://github.com/catseye/Befunge-93/blob/master/doc/Befunge-93.markdown)
   - done:
