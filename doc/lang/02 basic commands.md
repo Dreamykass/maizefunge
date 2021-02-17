@@ -4,17 +4,17 @@
 ```
 COMMAND          | RESULT
 ---------------- | ----------
-0-F (digits)     | pushes <0-15> 
-                 | (0 pushes 0, 5 pushes 5, A pushes 10, etc)
-+ (add)          | pops <a>, pops <b>, pushes <b+a>
-- (subtract)     | pops <a>, pops <b>, pushes <b-a>
-* (multiply)     | ..., pushes <b*a>
-/ (divide)       | ..., pushes <b/a>
-% (modulo)       | ..., pushes <b%a>
-` (greater)      | ..., pushes <1 if b is greater than a, otherwise 0>
+0-9 (digits)     | pushes <0-9> 
+                 | (0 pushes 0, 5 pushes 5, 8 pushes 8, etc)
++ (add)          | pops <b>, pops <a>, pushes <a+b>
+- (subtract)     | pops <b>, pops <a>, pushes <a-b>
+* (multiply)     | ..., pushes <a*b>
+/ (divide)       | ..., pushes <a/b>
+% (modulo)       | ..., pushes <a%b>
+` (greater)      | ..., pushes <1 if a is greater than b, otherwise 0>
 ! (not)          | pops <a>, pushes <0 if a is non-zero, otherwise 1>
                  |
-\ (swap)         | pops <a>, pops <b>, pushes <a>, pushes <b>
+\ (swap)         | pops <b>, pops <a>, pushes <b>, pushes <a>
 $ (pop)          | pops <v>
 : (duplicate)    | pops <v>, pushes <v>, pushes <v>
 ; (peek under)   | pops <d>, peeks at <x> that is <d> elements
@@ -26,15 +26,15 @@ $ (pop)          | pops <v>
 ```
 COMMAND          | RESULT
 ---------------- | ----------
-  (space/null)   | counter moves forward in the current direction
-< (left)         | counter rotates to absolute west/left and moves forward 
-> (right)        | counter rotates to absolute east/right and moves forward 
-^ (up)           | counter rotates to absolute north/up and moves forward 
-v (down)         | counter rotates to absolute south/down and moves forward 
-[ (ccw)          | counter rotates counter-clockwise and moves forward
-] (cw)           | counter rotates clockwise and moves forward
-? (random)       | counter rotates to absolute random direction and moves forward
-# (bridge)       | counter moves forward twice (skipping a command) 
+  (space/null)   | moves forward in the current direction
+< (left)         | rotates to absolute west/left and moves forward 
+> (right)        | rotates to absolute east/right and moves forward 
+^ (up)           | rotates to absolute north/up and moves forward 
+v (down)         | rotates to absolute south/down and moves forward 
+[ (ccw)          | rotates counter-clockwise and moves forward
+] (cw)           | rotates clockwise and moves forward
+? (random)       | rotates to absolute random direction and moves forward
+# (bridge)       | moves forward twice (skipping a command) 
                  |
 _ (horizontal if)| pops <val>, acts like < if <val> is truthy, otherwise >
 | (vertical if)  | pops <val>, acts like ^ if <val> is truthy, otherwise v
@@ -44,13 +44,15 @@ _ (horizontal if)| pops <val>, acts like < if <val> is truthy, otherwise >
 ```
 COMMAND          | RESULT
 ---------------- | ----------
-@ (end)          | terminates the counter, if all counters are terminated,
-                 | program is considered finished
+@ (end)          | terminates the program, including all counters
+                 |
 " (stringmode)   | toggles stringmode state
                  | while active, pushes unicode values of commands
+' (charmode)     | toggles charmode state, if active, 
+                 | pushes one unicode value of command, and deactivates
                  |
-. (stream pop)   | pops <v> from the in/out stream, pushes <v> 
-, (stream push)  | pops <v>, pushes <v> into the in/out stream
+. (stream pop)   | pops <v> from the currently active in/out stream, pushes <v> 
+, (stream push)  | pops <v>, pushes <v> into the currently active in/out stream
                  |
 g (get)          | pops <y>, pops <x>,
                  | reads <v> at (x,y) coord, pushes <v>
