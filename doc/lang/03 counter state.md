@@ -7,14 +7,14 @@ All registers are start with the value of 0 (zero).
 REGISTER         | MEANING
 ---------------- | ----------
 0                | counter identifier
-1                | x coord
-2                | y coord
+1                | x coord (width: +right, -left)
+2                | y coord (height: +down, -up)
 3                | direction (0 is up, 1 is right, 2 is down, 3 is left)
-4                | stringmode
-5                | charmode
-6                | active stream identifier
-7                | 
-8                | 
+4                | current space identifier
+5                | stringmode
+6                | charmode
+7                | active stream identifier
+8                | remaining sleep
 9                | 
 A (10)           | free-use register A
 B (11)           | free-use register B

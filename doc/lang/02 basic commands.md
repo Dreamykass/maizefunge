@@ -13,6 +13,7 @@ COMMAND          | RESULT
 % (modulo)       | ..., pushes <a%b>
 ` (greater)      | ..., pushes <1 if a is greater than b, otherwise 0>
 ! (not)          | pops <a>, pushes <0 if a is non-zero, otherwise 1>
+~ (sign)         | pops <a>, pushes <a *-1>
                  |
 \ (swap)         | pops <b>, pops <a>, pushes <b>, pushes <a>
 $ (pop)          | pops <v>

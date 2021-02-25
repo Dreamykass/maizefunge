@@ -12,3 +12,6 @@ members = [
 ]
 
 [dependencies]
+
+[dev-dependencies]
+maizelib = { path="lib/maizelib" }
